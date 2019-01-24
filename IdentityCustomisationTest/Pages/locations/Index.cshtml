@@ -1,0 +1,48 @@
+﻿@page
+@model IdentityCustomisationTest.Pages.locations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>LOCATION</h4>
+<p>
+    <ul><a href="Customers">CUSTOMERS</a></ul>
+    <ul><a href="Employee's">EMPLOYEE</a></ul>
+    <ul><a href="Productlocations">PRODCT LOCATION</a></ul>
+    <ul><a href="Products">PRODUCTS</a></ul><br>
+</p>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Location[0].ShelfNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Location) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelfNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.LocationID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.LocationID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.LocationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

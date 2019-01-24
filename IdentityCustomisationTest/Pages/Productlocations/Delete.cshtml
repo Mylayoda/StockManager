@@ -1,0 +1,40 @@
+﻿@page
+@model IdentityCustomisationTest.Pages.Productlocations.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProductLocation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductLocation.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductLocation.Quantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductLocation.Product)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductLocation.Product.ProductID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductLocation.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductLocation.Location.LocationID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ProductLocation.ProductLocationId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
